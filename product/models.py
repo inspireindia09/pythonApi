@@ -20,16 +20,16 @@ class Centers(models.Model):
     center_name=models.CharField(max_length=100)
     center_location=models.CharField(max_length=100)
     center_category=models.CharField(max_length=100)
-
+    
     def __str__(self):
-        return str(self.center_name,self.center_location)
+        return self.center_name
 
 #Vidoes for user so they can be educated
 class Video(models.Model):
     video_title=models.CharField(max_length=100)
     video_category=models.ForeignKey(Category,on_delete=models.CASCADE, to_field='category_name')
     video_article=models.TextField()
-    video_link=models.URLField()
+    video_link=models.URLField() 
     
     def __str__(self):
         return self.video_title

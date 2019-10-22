@@ -9,3 +9,8 @@ class CategoryRelatedVideoSerializer(serializers.ModelSerializer):
     class Meta:
         model=Video
         fields='__all__'
+
+class CenterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Centers
+        fields='__all__'
