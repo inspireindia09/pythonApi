@@ -41,6 +41,8 @@ function getProductDetails(){
         contentType: "application/json",
         dataType: 'json',
         success: function(result){
+            alert(result.data)
+        
             var table='<table>';
                 table+='<th>Product Name</th>';
                 table+='<th>Product Price</th>';

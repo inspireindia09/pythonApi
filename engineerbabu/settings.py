@@ -67,10 +67,10 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser',
     )
 }
-# REST_FRAMEWORK = {
-#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-#     'PAGE_SIZE': 10
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10
+}
 ROOT_URLCONF = 'engineerbabu.urls'
 
 TEMPLATES = [
