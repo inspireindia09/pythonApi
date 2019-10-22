@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body onload="getProductDetails()">
+
+<div id="tabledata"></div>
+
+</body>
+<script>
+function getProductDetails(){
+    $.ajax({
+        url: "https://engineerbabu.herokuapp.com/products/productlist/",
+        type:"GET",
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(result){
+            var table='<table>';
+                table+='<th>Product Name</th>';
+                table+='<th>Product Price</th>';
+                table+='<th>Product Detail</th>';
+                for(i=0;i<=result.count;i++){
+                    alert('first record')
+                    table+='<tr>';
+                        table+='<td>'+result[i]['product_name']+'</td>';
+                        table+='<td>'+result.count+'</td>';
+                        table+='<td>'+result.count+'</td>';
+                        table+='<td>'+result.count+'</td>';
+                    table+='</tr>';
+                        
+                }
+            document.getElementById('tabledata').innerHTML=table;    
+            console.log(result);
+        }
+    })
+ 
+}
+</script>
+</html>
