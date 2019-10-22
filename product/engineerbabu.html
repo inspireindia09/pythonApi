@@ -4,27 +4,47 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <style>
-#customers {
+#table {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
 
-#customers td, #customers th {
+#tabledata, #tableheading {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+#tablerow:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+#tablerow:hover {background-color: #ddd;}
 
-#customers th {
+#heading {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #4CAF50;
+  background-color: #4cafaa;
   color: white;
+}
+#buttonid {
+    background-color: cadetblue;
+    border: 1px solid green;
+    color: white;
+    padding: 10px 19px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 9px;
+    cursor: pointer;
+    float: left;
+}
+
+#buttonid:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+#buttonid:hover {
+  background-color: #3e8e41;
 }
 </style>
 </head>
@@ -41,19 +61,23 @@ function getProductDetails(){
         contentType: "application/json",
         dataType: 'json',
         success: function(result){
-            alert(result.data)
+           
         
-            var table='<table>';
-                table+='<th>Product Name</th>';
-                table+='<th>Product Price</th>';
-                table+='<th>Product Detail</th>';
-                for(i=0;i<=result.count;i++){
-                    alert('first record')
-                    table+='<tr>';
-                        table+='<td>'+result[i]['product_name']+'</td>';
-                        table+='<td>'+result.count+'</td>';
-                        table+='<td>'+result.count+'</td>';
-                        table+='<td>'+result.count+'</td>';
+            var table='<table id="table">';
+                table+='<th id="heading">Product Name</th>';
+                table+='<th id="heading">Product Price</th>';
+                table+='<th id="heading">Product Category</th>';
+                table+='<th id="heading">Product Detail</th>';
+                table+='<th id="heading">Purchase</th>';
+                
+                for(i=1;i<=result.count;i++){
+                    
+                    table+='<tr id="tablerow">';
+                        table+='<td id="tabledata">'+result.results[i-1]['product_name']+'</td>';
+                        table+='<td>'+result.results[i-1]['product_price']+'</td>';
+                        table+='<td>'+result.results[i-1]['product_category']+'</td>';
+                        table+='<td>'+result.results[i-1]['product_detail']+'</td>';
+                        table+='<td><button id="buttonid">Purchase</button></td>'
                     table+='</tr>';
                         
                 }

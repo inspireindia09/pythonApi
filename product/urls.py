@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path,include
-from .views import ProductDetails
+from .views import ProductDetails,CategoryRelatedVideo
 urlpatterns = [
     path('productlist/', ProductDetails.as_view()),
-    # path('products/', include('product.urls'))
+    path('videos/', CategoryRelatedVideo.as_view())
 ]
