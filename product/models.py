@@ -12,6 +12,8 @@ class Product(models.Model):
     product_price=models.IntegerField(default=0)
     product_detail=models.TextField()
     product_category=models.ForeignKey(Category,on_delete=models.CASCADE,to_field="category_name")
+    #For future we can upload image and display acutally i did not upload image because heroku delete image after some time.
+    #product_picture=models.FileField(upload_to='Media/')
     def __str__(self):
         return self.product_name
 
