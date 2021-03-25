@@ -12,10 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import django_heroku
-from googlegeocoder import GoogleGeocoder
 
-#google loction api key
-geocoder = GoogleGeocoder("<api key>")
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -138,6 +135,14 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+cloudinary.config( 
+  cloud_name = "dzdecrhc3", 
+  api_key = "211238117723193", 
+  api_secret = "zkm-cuus9s0yqsF2Mv0axsgFRv4" 
+)
 
 
 # Static files (CSS, JavaScript, Images)
